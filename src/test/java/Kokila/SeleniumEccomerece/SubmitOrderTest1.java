@@ -24,6 +24,11 @@ public class SubmitOrderTest1 {
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 		WebDriverWait wait=new WebDriverWait(driver,Duration.ofSeconds(5));
 		
+		
+		//
+
+		
+		
 		LandingPage landingPage=  new LandingPage(driver);
 		landingPage.GOTO();
 		landingPage.loginWeb("kokila12@gmail.com", "Kokila-12");
