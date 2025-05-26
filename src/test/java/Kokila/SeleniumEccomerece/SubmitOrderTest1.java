@@ -27,18 +27,7 @@ public class SubmitOrderTest1 {
 		LandingPage landingPage=  new LandingPage(driver);
 		landingPage.GOTO();
 		landingPage.loginWeb("kokila12@gmail.com", "Kokila-12");
-		
-		//Mani1
-		
-		
-		
-		
-		//Mani24445555555566
-		
-		
-		
-		
-	
+			
 		
 		ProductCatalogue productCatalogue = new ProductCatalogue(driver);
 		List<WebElement> products = productCatalogue.getProductsList();
