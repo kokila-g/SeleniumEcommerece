@@ -25,9 +25,7 @@ public class ProductCatalogue extends AbstractComponents {
 	@FindBy(css=".ng-animating")
 	WebElement spinner;
 	By productsBy = By.cssSelector(".mb-3");
-	//test222
-
-	
+		
 	public List<WebElement> getProductsList() {
 		WaitForTheVisibilityOfElement(productsBy);
 		return products;
@@ -38,9 +36,12 @@ public class ProductCatalogue extends AbstractComponents {
 		return prod;
 	}
 	
-	public void AddProductToCart(WebElement prod) {
+	public CartPage AddProductToCart(WebElement prod) {
 		prod.findElement(By.className("fa-shopping-cart")).click();
 		WaitForTheInvisibilityOfElement(spinner);
+		WaitForTheVisibilityOfElement(By.cssSelector("#toast-container"));
+		CartPage cartpage = new CartPage(driver);
+		return cartpage;
 	}
 	
 	

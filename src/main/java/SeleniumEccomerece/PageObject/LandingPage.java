@@ -27,10 +27,12 @@ WebElement password;
 @FindBy(id="login")
 WebElement submit;
 
-public void loginWeb(String userid,String pwd) {
+public ProductCatalogue loginWeb(String userid,String pwd) {
 	userName.sendKeys(userid);
 	password.sendKeys(pwd);
 	submit.click();
+	ProductCatalogue productCatalogue = new ProductCatalogue(driver);
+	return productCatalogue;
 }
 
 public void GOTO() {
