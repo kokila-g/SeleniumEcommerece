@@ -19,13 +19,14 @@ import SeleniumEccomerece.PageObject.CartPage;
 import SeleniumEccomerece.PageObject.CheckOutPage;
 import SeleniumEccomerece.PageObject.ConfirmationPage;
 import SeleniumEccomerece.PageObject.LandingPage;
+import SeleniumEccomerece.PageObject.OrdersPage;
 import SeleniumEccomerece.PageObject.ProductCatalogue;
 
 import java.util.List;
 import org.openqa.selenium.WebElement;
 
 public class SubmitOrderTest1 extends BaseTest {
-
+String product = "ZARA COAT 3";
 @Test
 public void submitOrder() throws IOException, InterruptedException {
 		
@@ -37,7 +38,7 @@ public void submitOrder() throws IOException, InterruptedException {
 		
 		
 		List<WebElement> products = productCatalogue.getProductsList();
-		WebElement prod = productCatalogue.getProductByName("ZARA COAT 3");
+		WebElement prod = productCatalogue.getProductByName(product);
 		CartPage cartpage = productCatalogue.AddProductToCart(prod);
 		
 		//wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("#toast-container")));
@@ -61,5 +62,12 @@ public void submitOrder() throws IOException, InterruptedException {
 		
 
 	}
+@Test(dependsOnMethods={"submitOrder"})
+public void productInOrderPage() {
+	ProductCatalogue productCatalogue = landingPage.loginWeb("kokila12@gmail.com", "Kokila-12");
+	OrdersPage orderpage=productCatalogue.GoToOrders();
+	boolean productExist = orderpage.ProductInOrders(product);
+	Assert.assertTrue(productExist);
+}
 }
 
