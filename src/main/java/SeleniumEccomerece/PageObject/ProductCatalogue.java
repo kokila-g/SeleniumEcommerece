@@ -36,10 +36,12 @@ public class ProductCatalogue extends AbstractComponents {
 		return prod;
 	}
 	
-	public CartPage AddProductToCart(WebElement prod) {
+	public CartPage AddProductToCart(WebElement prod) throws InterruptedException {
 		prod.findElement(By.className("fa-shopping-cart")).click();
+		Thread.sleep(2000);
 		WaitForTheInvisibilityOfElement(spinner);
-		WaitForTheVisibilityOfElement(By.cssSelector("#toast-container"));
+		Thread.sleep(1000);
+		//WaitForTheVisibilityOfElement(By.cssSelector("#toast-container"));
 		CartPage cartpage = new CartPage(driver);
 		return cartpage;
 	}
