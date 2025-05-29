@@ -24,8 +24,8 @@ WebDriver driver;
 	@FindBy(xpath="//button[contains(text(),'Checkout')]")
 	WebElement Checkout;
 	
-	public boolean verifyProductInCart() {
-		Boolean match = ProductsInCart.stream().anyMatch(ProductInCart->ProductInCart.getText().equalsIgnoreCase("ZARA COAT 3"));
+	public boolean verifyProductInCart(String product) {
+		Boolean match = ProductsInCart.stream().anyMatch(ProductInCart->ProductInCart.getText().equalsIgnoreCase(product));
 		return match;
 	}
 	

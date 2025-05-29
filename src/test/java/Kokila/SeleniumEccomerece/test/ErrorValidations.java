@@ -10,7 +10,7 @@ import SeleniumEccomerece.PageObject.ProductCatalogue;
 
 public class ErrorValidations extends BaseTest {
 
-	@Test
+	@Test (groups = {"ErrorHandling"})
 	public void IncorrectLogin() {
 		ProductCatalogue productCatalogue = landingPage.loginWeb("kokila@gmail.com", "Kokila12");
 		String errorMessage = landingPage.getErrorMessage();
